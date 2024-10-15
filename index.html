@@ -6,40 +6,70 @@
     <title>Bob</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
+            color: #333;
         }
 
         header {
-            background-color: #35424a;
+            background: linear-gradient(45deg, #35424a, #2c3e50);
             color: white;
             text-align: center;
-            padding: 1rem;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
         }
 
+            header::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+               
+                opacity: 0.1;
+                z-index: 0;
+            }
+
+            header h1, header p {
+                position: relative;
+                z-index: 1;
+            }
+
         nav {
-            background-color: #35424a;
-            color: white;
-            padding: 0.5rem;
+            background-color: #2c3e50;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
             nav ul {
                 list-style-type: none;
                 padding: 0;
+                margin: 0;
+                display: flex;
+                justify-content: center;
             }
 
                 nav ul li {
-                    display: inline;
-                    margin-right: 10px;
+                    margin: 0 15px;
                 }
 
                     nav ul li a {
                         color: white;
                         text-decoration: none;
+                        font-weight: bold;
+                        transition: color 0.3s ease;
                     }
+
+                        nav ul li a:hover {
+                            color: #3498db;
+                        }
 
         .container {
             width: 80%;
@@ -48,57 +78,119 @@
             padding: 20px;
         }
 
+        section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+            section:hover {
+                transform: translateY(-5px);
+            }
+
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-item {
+            background-color: #3498db;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+
         .project {
-            background-color: #ffffff;
-            border-radius: 5px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #3498db;
             padding: 15px;
             margin-bottom: 20px;
+        }
+
+        .contact-info a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+            .contact-info a:hover {
+                color: #2980b9;
+            }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section {
+            animation: fadeIn 0.5s ease-out forwards;
         }
     </style>
 </head>
 <body>
     <header>
         <h1>Bob</h1>
-        <p>c++ Developer</p>
+        <p>new C++ Developer/Former minecraft server admin</p>
     </header>
-
     <nav>
         <ul>
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
+
+
         </ul>
     </nav>
-
     <div class="container">
         <section id="about">
             <h2>About Me</h2>
-            <p>Hello! I'm Bob, a Freshman in Yzu university,I am currently learning c++.</p>
+            <p>Hello! I'm Bob, a Freshman at YZU University. I'm passionate about programming and currently focusing on learning C++.</p>
+            <p>I used to be the administrator/maintainer of the best 1.7.10 minecraft pvp server in China.<p>
+            <p>My goal is to become a professional software developer and contribute to the open-source community.</p>
         </section>
-
         <section id="skills">
             <h2>Skills</h2>
-            <ul>
-                <li>HTML5</li>
-                <li>c++</li>
+            <div class="skills-list">
+                <span class="skill-item">HTML5</span>
+                <span class="skill-item">C++</span>
+                <span class="skill-item">C#</span>
+                <span class="skill-item">SQL</span>
+                <span class="skill-item">TOEIC:855</span>
 
-            </ul>
+            </div>
         </section>
-
         <section id="projects">
-            <h2>Projects-in progress </h2>
+            <h2>Projects in Progress</h2>
             <div class="project">
                 <h3>Weather App</h3>
-                <p>Created a weather application using QT/c++ and the OpenWeatherMap API. Users can search for weather information .</p>
+                <p>CURRENT Developing a weather application using Qt/C++ and the OpenWeatherMap API. Users can search for real-time weather information for any location,Automatically searches for the user's local weather</p>
+                <p>Things to do:Replaced OpenWeatherMap API with Central Weather Administration Opendata api.Unified Natural Disaster Alert,get a better gui</p>
+                <p><a href="https://github.com/survive55/qt-weatherforcase-newbie">github repository</a><p>       
             </div>
-        
         </section>
-
-        <section id="contact">
+        <section id="contact" class="contact-info">
             <h2>Contact</h2>
-            <p>Email: sesfinalend@gmail.com</p>
-            <p>GitHub: <a href="https://github.com/survive55">github.com/survive55</a></p>
+            <p>Email: <a href="mailto:sesfinalend@gmail.com">sesfinalend@gmail.com</a></p>
+            <p>GitHub: <a href="https://github.com/survive55" target="_blank">github.com/survive55</a></p>
         </section>
     </div>
 </body>
